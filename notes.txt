@@ -1,0 +1,16 @@
+Here's what I need to work on at the moment...
+
+1. (DONE) Make directories.SOURCE a list of paths instead of a string
+2. (DONE) Make main() iterate through each item in SOURCE and run recursive list_files_in_directory() on each
+3. (DONE) Add "none" option for get_last_modifiedtime() time_threshold parameter so we can test without
+4. (DONE) Create Logger to log into a .txt file every time the function runs
+5. (DONE) Big change... We got the script to iterate through each source path, but now we have to copy over the directories
+6. (SKIP) After we do 5, let's make an option to delete from destination if the file already exists. Then after deleting the file, we reinsert it (will likely be an addition to the copy function)
+7. (DONE) Add functionality to ensure we insert files into the proper directory or subdirectory
+8. Add a progress bar to track how much time we have left... do it based on the total number of objects to create/copy
+9. Create a PowerShell script I can execute in a folder that takes the path and adds it to the source directories file. This is way better than manually going through everything.
+    Currently have the script created, just need to figure out how to execute it from anywhere... Perhaps will use the $Profile folder
+    - To edit or remove the script, execute "code $PROFILE" in powershell
+10. Right now we have to make sure we only create directories if it contains a file that has been modified within the threshold time
+11. (DONE) remove the directories.py file and make a config.json file
+12. Create History json... it will include date and timestamp for each execution (maybe even the total number of files copied)
