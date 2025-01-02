@@ -1,0 +1,10 @@
+{
+    "LastExecution":  "2025-01-01 18:35:18",
+    "source":  [
+                   "C:\\Users\\mike\\AutomatedBackUpTest\\Source_Files",
+                   "C:\\Users\\mike\\PersonalFinances",
+                   "C:\\Users\\mike\\Coding\\AutomatedBackUp\\Version5\\log",
+                   "C:\\Users\\mike\\Writing"
+               ],
+    "destination":  "C:\\Users\\mike\\AutomatedBackUpTest\\Destination_Files"
+}

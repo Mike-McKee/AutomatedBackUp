@@ -1,0 +1,14 @@
+
+2025-01-01 18:35:18.876214 - Copying (1 of 12): TestDir1\testdir1.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.891559 - Copying (2 of 12): TestDir2\testdir2.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.895568 - Copying (3 of 12): TestDir3\dir3_test.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.897899 - Copying (4 of 12): TestDir3\TestDir3_Sub\subfile1.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.899873 - Copying (5 of 12): TestDir3\TestDir3_Sub\subfile2.py to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.907118 - Copying (6 of 12): TestDir4\dir4_test.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.909261 - Copying (7 of 12): TestDir4\dir4_test1.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.911454 - Copying (8 of 12): TestDir4\dir4_test12.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.913274 - Copying (9 of 12): TestDir4\dir4_test2.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.914915 - Copying (10 of 12): TestDir4\TestDir4_Sub\TestDir_Sub_Sub\TwoSubDirs.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.917534 - Copying (11 of 12): testfile.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.919398 - Copying (12 of 12): testfile2.txt to C:\Users\mike\AutomatedBackUpTest\Destination_Files\Source_Files
+2025-01-01 18:35:18.925409 - Copying (1 of 1): Invoice_SportsArenaWinter2025.pdf to C:\Users\mike\AutomatedBackUpTest\Destination_Files\PersonalFinances
