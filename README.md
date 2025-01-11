@@ -29,3 +29,4 @@ If you want to remove the function from your system's built-in list, follow the 
 3. Restart PowerShell and run the following to validate it no longer exists: `get-command -commandtype function | where-object { $_.Name -like "AddAsSourcePath*" }`
 
 Testing this one now... `(get-content -path $Profile -raw) -replace "# Begin AddAsSourcePath.*?# End AddAsSourcePath",""` Remove function not working yet...
+
