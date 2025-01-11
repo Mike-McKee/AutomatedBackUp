@@ -14,3 +14,10 @@ Here's what I need to work on at the moment...
 10. Right now we have to make sure we only create directories if it contains a file that has been modified within the threshold time
 11. (DONE) remove the directories.py file and make a config.json file
 12. Create History json... it will include date and timestamp for each execution (maybe even the total number of files copied)
+
+
+2025-01-11:
+- Currently, I'm working on a script to automate making built-in function...
+- NExt steps would be two more functions:
+    - One to check if the current directory exists in the config.json
+    - One to remove current directory from config.json
