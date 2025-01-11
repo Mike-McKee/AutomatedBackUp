@@ -131,8 +131,6 @@ def copy_files(
 
     for FileNum,src_file in enumerate(files_to_transfer,1):
         file_name = os.path.basename(src_file)
-        # time.sleep(0.5)
-    # for file_name in files_to_transfer:
 
         if not os.path.isfile(os.path.join(src_directory,src_file)):
             print(f"{file_name} does not exist in the source directory.")
