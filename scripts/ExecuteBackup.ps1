@@ -25,11 +25,11 @@ if (-not (test-path ".\myenv\")) {
     # install necessary pip libraries
     pip install -r requirements.txt
 } else {
-    .\myenv\Scripts\Activate
+    & .\myenv\Scripts\Activate
 }
 
 # NOW WE EXECUTE THE PYTHON BACKUP SCRIPT
-# py -m copy_function.py
+py .\copy_function.py
 
 write-host "YAY!!! FINISHED"
 deactivate
