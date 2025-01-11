@@ -24,7 +24,8 @@ function AddAsSourcePath {
     2. Specify Subdirectory --> Only adds subdirectory and ignores all other files or subdirectories in current dir
     #>
 
-    `$CurrentDirectory = Get-Location
+    # Specify .Path below or else we get dictionary returned
+    `$CurrentDirectory = (Get-Location).Path.ToString()
 
     #Set path to config.json
     `$JsonPath = '$ConfigPath'
@@ -49,7 +50,9 @@ function AddAsSourcePath {
 
         #Iterate through `$DirectoriesToAdd to create full path
         foreach (`$Dir in `$DirToAdd) {
-            `$FullPath = join-path -path `$CurrentDirectory -ChildPath `$Dir
+            `$CleanDir = resolve-path `$Dir.ToString()
+            # NEED TO FIX BELOW
+            `$FullPath = join-path -path `$CurrentDirectory -ChildPath `$CleanDir.ToString()
             `$NewPaths += `$FullPath
         }
 
