@@ -8,7 +8,7 @@ Here's what I need to work on at the moment...
 6. (SKIP) After we do 5, let's make an option to delete from destination if the file already exists. Then after deleting the file, we reinsert it (will likely be an addition to the copy function)
 7. (DONE) Add functionality to ensure we insert files into the proper directory or subdirectory
 8. Add a progress bar to track how much time we have left... do it based on the total number of objects to create/copy
-9. Create a PowerShell script I can execute in a folder that takes the path and adds it to the source directories file. This is way better than manually going through everything.
+9. (DONE) Create a PowerShell script I can execute in a folder that takes the path and adds it to the source directories file. This is way better than manually going through everything.
     Currently have the script created, just need to figure out how to execute it from anywhere... Perhaps will use the $Profile folder
     - To edit or remove the script, execute "code $PROFILE" in powershell
 10. Right now we have to make sure we only create directories if it contains a file that has been modified within the threshold time
@@ -21,3 +21,6 @@ Here's what I need to work on at the moment...
 - NExt steps would be two more functions:
     - One to check if the current directory exists in the config.json
     - One to remove current directory from config.json
+
+2025-01-11:
+- UPDATE: It works!!! The basic idea (backing up files) works. There are still things to clean up, but lots of progress has been made
