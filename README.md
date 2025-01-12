@@ -1,5 +1,19 @@
 # AutomatedBackUp
-Custom Python Tool to Automate File Backup
+Custom Python Tool to Automate File Backup.
+
+This repo allows me to automtaically backup files from my local computer to a specified cloud location.
+
+I built it because I have hundreds of files saved on my work laptop, within multiple directories. My company gives each employee a personal ShareFile drive to save files in the cloud.
+
+This is a perfect location to backup files in case of a disaster or malfunction.
+
+The problem, however, is that I currently do not save anything to my personal ShareFile.
+
+Why? Well, it's a mix of me being lazy and manually moving multiple files at once is a hassle. So, I don't do it.
+
+But this tool will automate the backup process and allow me to sleep better knowing my files (and hard work over the last 15 months) is safe.
+
+# How to use it...
 
 # AddAsSourcePath.ps1
 
