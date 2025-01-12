@@ -29,7 +29,7 @@ if (-not (test-path ".\myenv\")) {
 }
 
 # NOW WE EXECUTE THE PYTHON BACKUP SCRIPT
-py .\copy_function.py
+py .\AutomatedBackUp.py
 
 write-host "YAY!!! FINISHED"
 deactivate
