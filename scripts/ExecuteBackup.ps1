@@ -1,16 +1,7 @@
-<# First, let's verify we are in the correct directory #>
-$CurrentDirectory = (get-location).ToString()
-$ParentDirectory = [System.IO.Directory]::GetParent($CurrentDirectory)
-# write-host $CurrentDirectory
-# write-host "Parent Directory: $ParentDirectory"
-
-if ($CurrentDirectory -match ".*\\scripts$" -and $ParentDirectory -match ".*\\AutomatedBackUp$") {
-    cd ..
-} else {
-    write-host "INCORRECT DIRECTORY --> PLEASE GO TO \AutomatedBackUp\scripts TO EXECUTE" -foregroundcolor red
-    return #stops execution
-}
-
+function ExecuteAutomatedBackup {
+# First, let's go to the directory where our Python script exists
+<# ---------------- INSERT THE REPO'S DIRECTORY BELOW ---------------- #>
+cd 'C:\Users\mike\Coding\AutomatedBackup\'
 
 if (-not (test-path ".\myenv\")) {
     <# Initialize Python virtual environment and install necessary libraries #>
@@ -33,3 +24,4 @@ py .\AutomatedBackUp.py
 
 write-host "YAY!!! FINISHED"
 deactivate
+}
