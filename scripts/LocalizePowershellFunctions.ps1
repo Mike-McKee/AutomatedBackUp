@@ -79,6 +79,9 @@ py .\AutomatedBackUp.py
 
 write-host "YAY!!! FINISHED"
 deactivate
+
+# Go back to root directory
+cd ~
 }
 
 "@
