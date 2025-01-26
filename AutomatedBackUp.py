@@ -64,9 +64,6 @@ def list_files_in_directory(directory_path: str
     Old Returns list like this: ['testfile.txt','testfile2.txt']
     Old Returns list like this: ['C:\\Users\\mike\\AutomatedBackUpTest\\Source_Files\\testfile.txt','C:\\Users\\mike\\AutomatedBackUpTest\\Source_Files\\testfile2.txt']
 
-    Note:
-    -----
-    I recognize there is an opportunity to optimize the code because some of the if/elif statements here are redundant. Perhaps one day I'll do it, but the script functions as I need for now.
     """
     try:
         ObjectsToCreate = {
@@ -83,39 +80,41 @@ def list_files_in_directory(directory_path: str
 
             # ParentDirectory = None # May need to add this back in...
             if os.path.isfile(file_path) and ParentDir is None:
-                if threshold_time is None:
-                    ObjectsToCreate["files_list"].append(file_name)
-                elif get_last_modified_time(file_path,threshold_time):
+                if threshold_time is None or get_last_modified_time(file_path,threshold_time):
                     ObjectsToCreate["files_list"].append(file_name)
 
             elif os.path.isfile(file_path) and ParentDir is not None:
                 if threshold_time is None or get_last_modified_time(file_path,threshold_time):
                     ObjectsToCreate["files_list"].append(os.path.join(ParentDir,file_name))
 
-            elif os.path.isdir(file_path) and ParentDir is None:
-                # CreateDirectory(NewDirectory=file_name,DestinationPath=DestinationPath)
-                # print(f"file_name = {file_name}, file_path = {file_path}")
+            # elif os.path.isdir(file_path) and ParentDir is None:
+            #     ObjectsToCreate["directories_list"].append(file_name)
+
+            #     RecursiveRun = list_files_in_directory(file_path,DestinationPath,threshold_time,ParentDir=file_name)
+            #     ObjectsToCreate["files_list"].extend(RecursiveRun["files_list"])
+            #     ObjectsToCreate["directories_list"].extend(RecursiveRun["directories_list"])
+
+            # elif os.path.isdir(file_path) and ParentDir is not None:
+            #     ParentDirectory = os.path.join(ParentDir,file_name)
+
+            #     ObjectsToCreate["directories_list"].append(os.path.join(ParentDir,file_name))
+
+            #     RecursiveRun = list_files_in_directory(file_path,DestinationPath,threshold_time,ParentDir=ParentDirectory)
+            #     ObjectsToCreate["files_list"].extend(RecursiveRun["files_list"])
+            #     ObjectsToCreate["directories_list"].extend(RecursiveRun["directories_list"])
+
+            elif os.path.isdir(file_path):
+                if ParentDir is None:
+                    ParentDirectory = file_name
+                    ObjectsToCreate["directories_list"].append(file_name)
+                else:
+                    ParentDirectory = os.path.join(ParentDir,file_name)
+                    ObjectsToCreate["directories_list"].append(os.path.join(ParentDir,file_name))
                 
-                # 2024-12-29 - I think we no longer need DestinationPath here because we'll handle it in main
-                # ObjectsToCreate["directories_list"].append(os.path.join(DestinationPath,file_name))
-                ObjectsToCreate["directories_list"].append(file_name)
-
-                RecursiveRun = list_files_in_directory(file_path,DestinationPath,threshold_time,ParentDir=file_name)
-                ObjectsToCreate["files_list"].extend(RecursiveRun["files_list"])
-                ObjectsToCreate["directories_list"].extend(RecursiveRun["directories_list"])
-
-            elif os.path.isdir(file_path) and ParentDir is not None:
-                ParentDirectory = os.path.join(ParentDir,file_name)
-                # CreateDirectory(NewDirectory=ParentDirectory,DestinationPath=DestinationPath)
-                # print(f"file_name = {file_name}, ParentDir = {ParentDirectory}, file_path = {file_path}")
-                
-                # 2024-12-29 - I think we no longer need DestinationPath here because we'll handle it in main
-                # ObjectsToCreate["directories_list"].append(os.path.join(DestinationPath,ParentDir,file_name))
-                ObjectsToCreate["directories_list"].append(os.path.join(ParentDir,file_name))
-
                 RecursiveRun = list_files_in_directory(file_path,DestinationPath,threshold_time,ParentDir=ParentDirectory)
                 ObjectsToCreate["files_list"].extend(RecursiveRun["files_list"])
                 ObjectsToCreate["directories_list"].extend(RecursiveRun["directories_list"])
+
                 
         return ObjectsToCreate
     
