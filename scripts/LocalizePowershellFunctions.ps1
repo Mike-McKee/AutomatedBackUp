@@ -3,19 +3,19 @@ This script creates the AddAsSourcePath function which you can run in any direct
 #>
 
 
-# If function already exists, do not continue
+# If functions already exist, do not continue
 $exists = (Select-String -Path $Profile -Pattern "AddAsSourcePath").count -gt 0
 if ($exists) {
     return
 }
+$exists = (Select-String -Path $Profile -Pattern "ExecuteAutomatedBackup").count -gt 0
+if ($exists) {
+    return
+}
 
-$CurrentDir = (get-location).ToString()
-$ParentDirectory = [System.IO.Directory]::GetParent($CurrentDir)
-$ConfigPath = join-path -path $ParentDirectory -ChildPath "config.json"
 
 
 $AddAsSourcePath = @"
-# Begin AddAsSourcePath
 function AddAsSourcePath {
     param ([string[]]`$DirToAdd)
     <#
@@ -74,7 +74,7 @@ function AddAsSourcePath {
         write-output "`$DirToAdd successfully added"
     }
 }
-# End AddAsSourcePath
+
 "@
 
 $ExecuteAutomatedBackup = @"
@@ -105,20 +105,25 @@ py .\AutomatedBackUp.py
 write-host "YAY!!! FINISHED"
 deactivate
 }
+
 "@
 
-# Now add function to current session
+# Now add functions to current session
 Invoke-Expression $AddAsSourcePath
+Invoke-Expression $ExecuteAutomatedBackup
 
-# Now add function to Powershell $Profile
+<# -------------- Now add functions to Powershell $Profile -------------- #>
 # Get current $Profile content
 $CurrentProfileContent = get-content -path $Profile -Raw
-# Add function to $Profile (note: `n creates newline... similar to \n)
-$CurrentProfileContent += "`n$AddAsSourcePath"
+
+# Add functions to $Profile (note: `n creates newline... similar to \n)
+$CurrentProfileContent += "`n$AddAsSourcePath`n$ExecuteAutomatedBackup"
+
 # Finally save new content...
 set-content -path $Profile -value $CurrentProfileContent
 
 # This adds function to current session so you don't have to restart PowerShell
-. $Profile
+. $PROFILE
 
 write-host "AddAsSourcePath function created..." -foregroundcolor green
+write-host "ExecuteAutomatedBackup function created..." -foregroundcolor green
