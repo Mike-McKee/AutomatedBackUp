@@ -15,6 +15,12 @@ But this tool will automate the backup process and allow me to sleep better know
 
 # How to use it...
 
+## Config File
+
+Here, the config file is called config-example.json. In order to make this work on your local, rename the file to config.json. If you do not do this, AutomatedBackup.py will not be able to determine which files to move and where to move them.
+
+## Powershell functions
+
 Powershell functions you need to know:
 1. `AddAsSourcePath` - this adds a directory to your config.json source list. The function requires a string parameter that must be a subdirectory of your cwd. Here is an example of how to execute the function: `AddAsSourcePath .\scripts\`
 
