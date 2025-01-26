@@ -63,6 +63,10 @@ def list_files_in_directory(directory_path: str
     
     Old Returns list like this: ['testfile.txt','testfile2.txt']
     Old Returns list like this: ['C:\\Users\\mike\\AutomatedBackUpTest\\Source_Files\\testfile.txt','C:\\Users\\mike\\AutomatedBackUpTest\\Source_Files\\testfile2.txt']
+
+    Note:
+    -----
+    I recognize there is an opportunity to optimize the code because some of the if/elif statements here are redundant. Perhaps one day I'll do it, but the script functions as I need for now.
     """
     try:
         ObjectsToCreate = {
