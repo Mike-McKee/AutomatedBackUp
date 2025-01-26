@@ -28,12 +28,12 @@ function AddAsSourcePath {
     `$CurrentDirectory = (Get-Location).Path.ToString()
 
     #Set path to config.json
-    `$JsonPath = 'C:\Users\mike\Coding\AutomatedBackup\'
+    `$JsonPath = 'C:\Users\mike\Coding\AutomatedBackup\config.json'
 
     # First, if no parameter passed, add current Directory to config.json
     if (-not `$DirToAdd) {
         # Get current directories in Json file
-        `$JsonContent = get-content -Path `$JsonPath -Raw
+        `$JsonContent = get-content -Path `$JsonPath
         # Convert JSON content to powershell object (so we can append to it)
         `$JsonObject = `$JsonContent | ConvertFrom-Json
         # Add current directory to source array
@@ -45,33 +45,8 @@ function AddAsSourcePath {
         # Leave message that Path was successfully added
         write-host "`$CurrentDirectory successfully added"
     } else {
-        #Create array to hold new Path values
-        `$NewPaths = @()
-
-        #Iterate through `$DirectoriesToAdd to create full path
-        foreach (`$Dir in `$DirToAdd) {
-            `$CleanDir = resolve-path `$Dir.ToString()
-            # NEED TO FIX BELOW
-            `$FullPath = join-path -path `$CurrentDirectory -ChildPath `$CleanDir.ToString()
-            `$NewPaths += `$FullPath
-        }
-
-        #Read JSON File Content
-        `$JsonContent = get-content -Path `$JsonPath -Raw
-
-        #Convert JSON content to PowerShell Object
-        `$JsonObject = `$JsonContent | ConvertFrom-Json
-
-        #Add new file paths to the source array
-        `$JsonObject.source += `$NewPaths
-
-        #Convert PowerShell object back to JSON
-        `$NewJsonContent = `$JsonObject | ConvertTo-Json -Depth 3
-
-        #Write the updated JSON content back to the file
-        set-content -path `$JsonPath -value `$NewJsonContent
-
-        write-output "`$DirToAdd successfully added"
+        # Changing function to require no paramter... If something is passed, raise Error
+        write-host "-------- ERROR: AddAsSourcePath takes no paramter --------" -foregroundcolor Red
     }
 }
 
