@@ -15,9 +15,12 @@ But this tool will automate the backup process and allow me to sleep better know
 
 # How to use it...
 
-## Config File
+## config-example.json file
 
-Here, the config file is called config-example.json. In order to make this work on your local, rename the file to config.json. If you do not do this, AutomatedBackup.py will not be able to determine which files to move and where to move them.
+A few things for you to do here:
+
+1. Rename the file to config.json. If you do not do this, AutomatedBackup.py will not be able to determine which files to move and where to move them.
+2. Add your destination path (aka where you want to backup your files to)
 
 ## Powershell functions
 
