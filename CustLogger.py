@@ -42,49 +42,6 @@ class CustLogger:
                 continue
         
         return None
-        
-
-    def debug(self,message):
-        now = datetime.datetime.now()
-        CurrentTimestamp = now.strftime(self.DateFormat)
-        DebugFile = os.path.join(self.LogLocation,"debug",f"{self.LogDate}_debug.txt")
-        if os.path.isfile(DebugFile):
-            with open(DebugFile,'a') as file:
-                file.write(f"\n{CurrentTimestamp} - {message}")
-            return None
-        else:
-            with open(DebugFile,'w') as file:
-                file.write(f"{CurrentTimestamp} - {message}")
-                return None
-        # return DebugFile
-
-    def error(self,message):
-        now = datetime.datetime.now()
-        CurrentTimestamp = now.strftime(self.DateFormat)
-        ErrorFile = os.path.join(self.LogLocation,"error",f"{self.LogDate}_error.txt")
-        if os.path.isfile(ErrorFile):
-            with open(ErrorFile,'a') as file:
-                file.write(f"\n{CurrentTimestamp} - {message}")
-            return None
-        else:
-            with open(ErrorFile,'w') as file:
-                file.write(f"{CurrentTimestamp} - {message}")
-                return None
-        # return ErrorFile
-
-    def info(self,message):
-        now = datetime.datetime.now()
-        CurrentTimestamp = now.strftime(self.DateFormat)
-        InfoFile = os.path.join(self.LogLocation,"info",f"{self.LogDate}_info.txt")
-        if os.path.isfile(InfoFile):
-            with open(InfoFile,'a') as file:
-                file.write(f"\n{CurrentTimestamp} - {message}")
-            return None
-        else:
-            with open(InfoFile,'w') as file:
-                file.write(f"{CurrentTimestamp} - {message}")
-                return None
-        # return infoFile
 
     # Can create a general log() function that takes the log type as input
     # We will use this method if all the logs have the exact same message written. Otherwise, I'll personalize as needed.
