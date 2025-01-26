@@ -15,32 +15,20 @@ But this tool will automate the backup process and allow me to sleep better know
 
 # How to use it...
 
-# AddAsSourcePath.ps1
+Powershell functions you need to know:
+1. `AddAsSourcePath` - this adds a directory to your config.json source list. The function requires a string parameter that must be a subdirectory of your cwd. Here is an example of how to execute the function: `AddAsSourcePath .\scripts\`
 
-## What does it do?
+2. `ExecuteAutomatedBackup` - this function executes the AutomatedBackUp.py script. The function automatically cd's into the scripts directory, hence why you can execute it from anywhere. There are no parameters. Here is an example of how to execute the function: `ExecuteAutomatedBackup`
 
-This script allows you to automatically add source directories to config.json.
+I suggest making the two functions built-in to Powershell, this way you can execute them from any directory. Here's how to do it:
+- Open Powershell
+- Go to your directory containing this repo and cd into the scripts folder
+- Run this: `.\LocalizePowershellFunctions.ps1`
+- Then run this: `. $PROFILE`
 
-Follow the steps in the next section to declare AddAsSourcePath as a built-in PowerShell function.
+To verify the process worked, you can execute the below. Note: if nothing appears, then `LocalizePowershellFunctions.ps1` failed. You can debug on your own or reach out to me for help.
+- `get-command -commandtype function | where-object { $_.Name -like "AddAsSourcePath" -or $_.Name -like "ExecuteAutomatedBackup" }`
 
-Once you do so, execute the following to add a directory to the source directories in config.json: `AddAsSourcePath .`
-
-This command adds all directories and subdirectories within your current directory to the list of items to backup.
-
-## How to add as buil-in PowerShell function 
-
-If you want to add AddAsSourcePath.ps1 as a built-in function on your system, follow the below steps:
-
-1. Open powershell
-2. Go to your directory containing this repo and the AddAsSourcePath.ps1 file
-3. Enter: `add-content -path $Profile -value (get-content -path .\AddAsSourcePath.ps1 -raw); . .\AddAsSourcePath.ps1`
-4. Run this to verify the function exists in your current session: ``get-command -commandtype function | where-object { $_.Name -like "AddAsSourcePath*" }``
-
-If you want to remove the function from your system's built-in list, follow the below steps:
-
-1. Open powershell
-2. Enter `(Get-Content -path $Profile -raw) -replace 'function AddAsSourcePath {.*?}','' | set-content -path $Profile; Remove-item Function:\AddAsSourcePath`
-3. Restart PowerShell and run the following to validate it no longer exists: `get-command -commandtype function | where-object { $_.Name -like "AddAsSourcePath*" }`
-
-Testing this one now... `(get-content -path $Profile -raw) -replace "# Begin AddAsSourcePath.*?# End AddAsSourcePath",""` Remove function not working yet...
-
+If you ever need to remove the functions from your built-in list, execute the following:
+- `Remove-Item Function:\AddAsSourcePath`
+- `Remove-Item Function:\ExecuteAutomatedBackup`
