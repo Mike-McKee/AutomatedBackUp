@@ -24,3 +24,12 @@ Here's what I need to work on at the moment...
 
 2025-01-11:
 - UPDATE: It works!!! The basic idea (backing up files) works. There are still things to clean up, but lots of progress has been made
+
+2025-01-31:
+Things I would like to add:
+- First, I want to enhance the powershell functions to have more capabilities and execute more Python scripts. For example:
+    - Ability to print all of the directories and files that a full execution would copy
+    - Ability to check the size of all the files we would be moving
+    - Ability to see the size of all directories in the destination folder
+    - Abillity to only move select files (perhaps we display list of files and user has ability to select specific numbers)
+- Before any of this, I need to debug the project because it currently executes very slowly when moving files to a cloud directory (that may be because of cloud queue or something)
