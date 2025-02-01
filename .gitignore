@@ -3,3 +3,4 @@ OldVersionsPreRepo/__pycache__/
 log/
 __pycache__/
 config.json
+config-debug.json
